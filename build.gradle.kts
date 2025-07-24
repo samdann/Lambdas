@@ -31,11 +31,14 @@ dependencies {
     implementation(platform("aws.sdk.kotlin:bom:1.3.112"))
     implementation("aws.sdk.kotlin:lambda")
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.0")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.0")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.0")
+    implementation("com.amazonaws:aws-lambda-java-core:1.2.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
+
     testImplementation(kotlin("test"))
     testImplementation("org.http4k:http4k-testing-strikt:5.6.4.0")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0")
+
+
 
 }
 
