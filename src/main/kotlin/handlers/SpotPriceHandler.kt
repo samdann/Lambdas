@@ -2,17 +2,17 @@ package com.blackchain.handlers
 
 import com.amazonaws.services.lambda.runtime.Context
 import com.amazonaws.services.lambda.runtime.RequestHandler
-import kotlinx.serialization.Serializable
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 
-@Serializable
-data class SpotPriceRequest(val token: String)
 
-@Serializable
-data class SpotPriceResponse(val token: String)
+class SpotPriceHandler : RequestHandler<String, String> {
 
-class SpotPriceHandler : RequestHandler<String, String>{
-
-    override fun handleRequest(input: String?, context: Context?): String? {
-        TODO("Not yet implemented")
+    private val json = Json {}
+    override fun handleRequest(input: String, context: Context): String {
+        val logger = context.logger
+        val message = input
+        logger.log("EVENT: parse message : $message")
+        return json.encodeToString("Echoing $message")
     }
 }
